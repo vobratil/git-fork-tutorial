@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_git-fork-tutorial" default="compile.module.git-fork-tutorial">
+  <dirname property="module.git-fork-tutorial.basedir" file="${ant.file.module_git-fork-tutorial}"/>
+  
+  <property name="module.jdk.home.git-fork-tutorial" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.git-fork-tutorial" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.git-fork-tutorial" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.git-fork-tutorial" value="-encoding UTF-8 -source 10 -target 10 ${compiler.args}"/>
+  
+  <property name="git-fork-tutorial.output.dir" value="undefined"/>
+  <property name="git-fork-tutorial.testoutput.dir" value="undefined"/>
+  
+  <path id="git-fork-tutorial.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="git-fork-tutorial.module.production.classpath">
+    <path refid="${module.jdk.classpath.git-fork-tutorial}"/>
+  </path>
+  
+  <path id="git-fork-tutorial.runtime.production.module.classpath"/>
+  
+  <path id="git-fork-tutorial.module.classpath">
+    <path refid="${module.jdk.classpath.git-fork-tutorial}"/>
+  </path>
+  
+  <path id="git-fork-tutorial.runtime.module.classpath"/>
+  
+  
+  <patternset id="excluded.from.module.git-fork-tutorial">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.git-fork-tutorial">
+    <patternset refid="excluded.from.module.git-fork-tutorial"/>
+  </patternset>
+  
+  
+  <target name="compile.module.git-fork-tutorial" depends="compile.module.git-fork-tutorial.production,compile.module.git-fork-tutorial.tests" description="Compile module git-fork-tutorial"/>
+  
+  <target name="compile.module.git-fork-tutorial.production" depends="register.custom.compilers" description="Compile module git-fork-tutorial; production classes"/>
+  
+  <target name="compile.module.git-fork-tutorial.tests" depends="register.custom.compilers,compile.module.git-fork-tutorial.production" description="compile module git-fork-tutorial; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.git-fork-tutorial" description="cleanup module">
+    <delete dir="${git-fork-tutorial.output.dir}"/>
+    <delete dir="${git-fork-tutorial.testoutput.dir}"/>
+  </target>
+</project>
